@@ -26,10 +26,10 @@ $ terraform apply
 ```
 
 
-2. Build and deploy the webserver image in GKE, by issuing the following command at the root of the project:
+2. Build and deploy the integration to create a new version:
 
 ```shell
-$ ./deploy.sh
+$ gcloud builds submit --config=cloudbuild.yaml --project=YOUR_PROJECT_ID --region=YOUR_PROJECT_REGION --substitutions=_LOCATION=YOUR_PROJECT_REGION
 ```
 
 ## Uninstall
@@ -38,7 +38,7 @@ $ ./deploy.sh
 1. Run the following at the root of your project
 
 ```shell 
-$ ./uninstall.sh
+$ terraform destroy
 ```
 
 > All resources will now be removed from your project
