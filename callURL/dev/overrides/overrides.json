@@ -1,0 +1,18 @@
+{
+	"trigger_overrides": [
+		{
+			"triggerNumber": "2",
+			"projectId": "jeremy-qv0zfoh9",
+			"topicName": "app-int-topic",
+			"serviceAccount": "app-int-pub-sub-sa"
+		}
+	],
+	"integration_overrides": {
+		"databasePersistencePolicy": "DATABASE_PERSISTENCE_ASYNC",
+		"enableVariableMasking": false,
+		"cloudLoggingDetails": {
+			"cloudLoggingSeverity": "CLOUD_LOGGING_SEVERITY_UNSPECIFIED",
+			"enableCloudLogging": false
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"displayName": "rest-auth",
+	"decryptedCredential": {
+		"credentialType": "AUTH_TOKEN",
+		"authToken": {
+			"type": "Bearer",
+			"token": "123"
+		}
+	}
+}

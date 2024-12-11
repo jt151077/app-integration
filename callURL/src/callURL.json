@@ -1,0 +1,266 @@
+{
+	"snapshotNumber": "13",
+	"triggerConfigs": [
+		{
+			"label": "API Trigger",
+			"triggerType": "API",
+			"triggerNumber": "1",
+			"triggerId": "api_trigger/callURL_API_1",
+			"startTasks": [
+				{
+					"taskId": "1"
+				}
+			],
+			"properties": {
+				"Trigger name": "callURL_API_1"
+			}
+		},
+		{
+			"label": "Cloud Pub/Sub Trigger",
+			"triggerType": "CLOUD_PUBSUB_EXTERNAL",
+			"triggerNumber": "2",
+			"triggerId": "cloud_pubsub_external_trigger/projects/jeremy-qv0zfoh9/subscriptions/jeremy-qv0zfoh9_app-int-topic",
+			"startTasks": [
+				{
+					"taskId": "1"
+				}
+			],
+			"properties": {
+				"IP Project name": "jeremy-qv0zfoh9",
+				"Service account": "app-int-pub-sub-sa@jeremy-qv0zfoh9.iam.gserviceaccount.com",
+				"Subscription name": "jeremy-qv0zfoh9_app-int-topic"
+			}
+		}
+	],
+	"taskConfigs": [
+		{
+			"task": "GenericRestV2Task",
+			"taskId": "1",
+			"parameters": {
+				"additionalHeaders": {
+					"key": "additionalHeaders",
+					"value": {}
+				},
+				"authConfig": {
+					"key": "authConfig",
+					"value": {
+						"jsonValue": "{\n  \"@type\": \"type.googleapis.com/enterprise.crm.eventbus.authconfig.AuthConfigTaskParam\"\n}"
+					}
+				},
+				"authConfigName": {
+					"key": "authConfigName",
+					"value": {
+						"stringValue": "rest-auth"
+					}
+				},
+				"disableSSLValidation": {
+					"key": "disableSSLValidation",
+					"value": {
+						"booleanValue": false
+					}
+				},
+				"followRedirects": {
+					"key": "followRedirects",
+					"value": {
+						"booleanValue": true
+					}
+				},
+				"httpMethod": {
+					"key": "httpMethod",
+					"value": {
+						"stringValue": "GET"
+					}
+				},
+				"httpParams": {
+					"key": "httpParams",
+					"value": {}
+				},
+				"jsonAdditionalHeaders": {
+					"key": "jsonAdditionalHeaders",
+					"value": {
+						"jsonValue": "null"
+					}
+				},
+				"requestBody": {
+					"key": "requestBody",
+					"value": {
+						"stringValue": ""
+					}
+				},
+				"requestorId": {
+					"key": "requestorId",
+					"value": {
+						"stringValue": ""
+					}
+				},
+				"responseBody": {
+					"key": "responseBody",
+					"value": {
+						"stringArray": {
+							"stringValues": [
+								"$`Task_1_responseBody`$"
+							]
+						}
+					}
+				},
+				"responseHeader": {
+					"key": "responseHeader",
+					"value": {
+						"stringArray": {
+							"stringValues": [
+								"$`Task_1_responseHeader`$"
+							]
+						}
+					}
+				},
+				"responseStatus": {
+					"key": "responseStatus",
+					"value": {
+						"stringArray": {
+							"stringValues": [
+								"$`Task_1_responseStatus`$"
+							]
+						}
+					}
+				},
+				"throwError": {
+					"key": "throwError",
+					"value": {
+						"booleanValue": true
+					}
+				},
+				"timeout": {
+					"key": "timeout",
+					"value": {
+						"intValue": "0"
+					}
+				},
+				"url": {
+					"key": "url",
+					"value": {
+						"stringValue": "$`CONFIG_URL`$"
+					}
+				},
+				"urlFetchingService": {
+					"key": "urlFetchingService",
+					"value": {
+						"stringValue": "HARPOON"
+					}
+				},
+				"urlQueryStrings": {
+					"key": "urlQueryStrings",
+					"value": {}
+				},
+				"useSSL": {
+					"key": "useSSL",
+					"value": {
+						"booleanValue": false
+					}
+				},
+				"userAgent": {
+					"key": "userAgent",
+					"value": {
+						"stringValue": ""
+					}
+				}
+			},
+			"displayName": "Call REST Endpoint",
+			"taskExecutionStrategy": "WHEN_ALL_SUCCEED",
+			"externalTaskType": "NORMAL_TASK"
+		}
+	],
+	"integrationParameters": [
+		{
+			"key": "`ExecutionMode`",
+			"dataType": "STRING_VALUE",
+			"defaultValue": {
+				"stringValue": ""
+			},
+			"isTransient": true
+		},
+		{
+			"key": "`ErrorInfo`",
+			"dataType": "JSON_VALUE",
+			"defaultValue": {
+				"jsonValue": "{\n  \"message\": \"\",\n  \"code\": 0.0\n}"
+			},
+			"isTransient": true,
+			"jsonSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"number\"\n    },\n    \"message\": {\n      \"type\": \"string\"\n    }\n  }\n}"
+		},
+		{
+			"key": "`ExecutionId`",
+			"dataType": "STRING_VALUE",
+			"defaultValue": {
+				"stringValue": ""
+			},
+			"isTransient": true
+		},
+		{
+			"key": "`IntegrationName`",
+			"dataType": "STRING_VALUE",
+			"defaultValue": {
+				"stringValue": ""
+			},
+			"isTransient": true
+		},
+		{
+			"key": "`Region`",
+			"dataType": "STRING_VALUE",
+			"defaultValue": {
+				"stringValue": ""
+			},
+			"isTransient": true
+		},
+		{
+			"key": "`ProjectId`",
+			"dataType": "STRING_VALUE",
+			"defaultValue": {
+				"stringValue": ""
+			},
+			"isTransient": true
+		},
+		{
+			"key": "`Task_1_responseHeader`",
+			"dataType": "STRING_VALUE",
+			"isTransient": true,
+			"producer": "1_1"
+		},
+		{
+			"key": "`Task_1_responseBody`",
+			"dataType": "STRING_VALUE",
+			"isTransient": true,
+			"producer": "1_1"
+		},
+		{
+			"key": "`Task_1_responseStatus`",
+			"dataType": "STRING_VALUE",
+			"isTransient": true,
+			"producer": "1_1"
+		},
+		{
+			"key": "CloudPubSubMessage",
+			"dataType": "JSON_VALUE",
+			"isTransient": true,
+			"producer": "2_2",
+			"jsonSchema": "{\n  \"$schema\": \"http://json-schema.org/draft-04/schema#\",\n  \"type\": \"object\",\n  \"title\": \"Cloud Pub/Sub Message\",\n  \"description\": \"Message received by Cloud Pub/Sub.\",\n  \"properties\": {\n    \"data\": {\n      \"type\": \"string\",\n      \"description\": \"The message data sent by the publisher\"\n    },\n    \"attributes\": {\n      \"type\": \"object\",\n      \"description\": \"Attributes for this message\"\n    },\n    \"messageId\": {\n      \"type\": \"string\",\n      \"description\": \"ID of this message, assigned by the server when the message is published. Guaranteed to be unique within the topic.\"\n    },\n    \"publishTime\": {\n      \"type\": \"string\",\n      \"description\": \"The time at which the message was published, populated by the server when it receives the topics.publish call\"\n    },\n    \"orderingKey\": {\n      \"type\": \"string\",\n      \"description\": \"Identifies related messages for which publish order should be respected.\"\n    }\n  }\n}"
+		}
+	],
+	"integrationConfigParameters": [
+		{
+			"parameter": {
+				"key": "`CONFIG_URL`",
+				"dataType": "STRING_VALUE",
+				"defaultValue": {
+					"stringValue": ""
+				},
+				"displayName": "`CONFIG_URL`"
+			}
+		}
+	],
+	"userLabel": "V4",
+	"databasePersistencePolicy": "DATABASE_PERSISTENCE_ASYNC",
+	"cloudLoggingDetails": {
+		"cloudLoggingSeverity": "CLOUD_LOGGING_SEVERITY_UNSPECIFIED",
+		"enableCloudLogging": false
+	}
+}

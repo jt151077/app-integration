@@ -1,0 +1,28 @@
+steps:
+- id: 'Integration CLI version'
+  name: us-docker.pkg.dev/appintegration-toolkit/images/integrationcli:latest
+  args:
+    - --version
+- id: 'Apply Integration scaffolding configuration'
+  name: us-docker.pkg.dev/appintegration-toolkit/images/integrationcli:latest
+  args:
+    - integrations
+    - apply
+    - -f
+    - .
+    - -u
+    - ${SHORT_SHA}
+    - --wait=${_WAIT}
+    - --reg=${_LOCATION}
+    - --proj=${PROJECT_ID}
+    - --metadata-token
+    - --env=dev
+    - $(cat /tmp/cmd)
+
+substitutions:
+  _BUILD_INTEGRATION_HOST: "${_LOCATION}-integrations.googleapis.com"
+  _WAIT: "true"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  substitution_option: "ALLOW_LOOSE"
